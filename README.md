@@ -1,2 +1,2 @@
-# east_surabaya_house_predict
-A repo containing deployable web that serves a function of predicting house price in East Surabaya, Indonesia. 3rd party websites are scraped to provide dataset for model training.
+# H2H (Hope to Home)
+A web that serves as a final semester project in Uni, taking role as a house price prediction that harvest online data of local house listing located in East Surabaya, Indonesia. Scraped dataset got feeded to ML model to then be deployed in the website for prediction functionality.
