@@ -19,7 +19,7 @@ def index():
     return render_template('index.html', pred_res = pred_res, kpr_res = kpr_res)
 
 def predict(form):
-    model = joblib.load('/home/zagreus/Documents/Coding/HTML/AlPro/UAS/Model rumah.sav')
+    model = joblib.load('Model rumah.sav')
     luast = int(request.form['luast'])
     luas = int(request.form['luas'])
     kamar = int(request.form['kamar'])
