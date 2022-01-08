@@ -11,25 +11,36 @@
     <link rel="icon" type="image/x-icon" href="{{ url_for('static',filename='assets/favicon.ico')}}" />
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
+    <!-- AJAX JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!-- Google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="{{ url_for('static',filename='css/styles.css')}}" rel="stylesheet" />
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js "></script>
+    <!-- Core theme JS-->
+    <script src="{{ url_for( 'static',filename='scripts.js' )}} "></script>
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+    <!-- * *                               SB Forms JS                               * *-->
+    <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js "></script>
 </head>
 
 <body id="page-top">
     <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg text-uppercase fixed-top" style="background-color: #577057;" id="mainNav">
+    <nav class="navbar navbar-expand-lg text-uppercase fixed-top rounded" style="background-color: #577057;" id="mainNav">
         <div class="container">
-            <img src="{{ url_for('static', filename='assets/img/logo.png')}}" alt="logo" width="90" />
+            <img src="{{url_for('static', filename='assets/img/logo.png')}}" alt="logo" width="90" />
             <a class="navbar-brand" href="#page-top" style="font-size: 1.5rem;"> Hope To Home </a>
 
             <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           Menu
           <i class="fas fa-bars"></i>
         </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
+            <div class="collapse navbar-collapse" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#">Home</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio">Prediction</a></li>
@@ -48,15 +59,15 @@
                     <div class="col">
                         <!-- Masthead Heading-->
 
-                        <h3 class="masthead-heading text-uppercase mb-2" style="margin-top:100px;">
+                        <h3 class="masthead-heading text-uppercase mb-2" style="margin-top:50px;">
                             <i>East Surabaya House Selling Website</i>
                         </h3>
                         <br>
                         <br>
                         <!-- Masthead Subheading-->
-                        <p class="masthead-subheading font-weight-light mb-0"></p>
                         <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Pilih Lokasi</button>
+                            <button class="btn btn-outline-light
+                             dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Pilih Lokasi</button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                 <li><a class="dropdown-item" href="#">Mulyorejo</a></li>
                                 <li><a class="dropdown-item" href="#">Gubeng</a></li>
@@ -68,7 +79,6 @@
                             </ul>
                         </div>
                     </div>
-
                     <div class="col">
                         <div class="carousel-indicators" style="margin-left: 800px;">
                             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -124,43 +134,49 @@
             </div>
             <div class="divider-custom ">
                 <div class="divider-custom-line "></div>
-                <div class="divider-custom-icon "><i class="fas fa-star "></i></div>
+                <div class="divider-custom-icon "><i class="fas fa-home"></i></div>
                 <div class="divider-custom-line "></div>
             </div>
         </div>
-        <div class="row justify-content-center">
-            <div class="col-md-3 mb-3">
-                <div class="card-text text-center" style="margin-right: 50px;">
-                    <form action="{{ url_for('index') }}" method="POST">
-                        <label for=" inputAddress " class="form-label ">Luas Area (m<sup>2</sup>)</label>
-                        <input type="number" class="form-control " id="inputAddress " placeholder="Luas Area " name="luast" />
-                        <label for="inputAddress " class="form-label ">Luas Bangunan (m<sup>2</sup>)</label>
-                        <input type="number" class="form-control " id="inputAddress " placeholder="Luas bangunan " name="luas" />
-                        <label for="inputAddress " class="form-label ">Kamar Tidur</label>
-                        <input type="number" class="form-control " id="inputAddress " placeholder="Jumlah Kamar Tidur " name="kamar" />
-                        <label for="inputAddress " class="form-label ">Kamar Mandi</label>
-                        <input type="number" class="form-control " id="inputAddress " placeholder="Jumlah Kamar Mandi " name="kamarm" />
-                        <label for="inputAddress " class="form-label ">Garasi</label>
-                        <input type="number" class="form-control " id="inputAddress " placeholder="Jumlah garasi " name="garasi" />
-                        <label for="inputState " class="form-label ">Jumlah lantai</label>
-                        <input type="number" class="form-control " id="inputAddress " placeholder="Jumlah Lantai" name="lantai" />
-                        <!-- <label for="inputState " class="form-label ">Jumlah lantai</label> -->
-                        <br>
-                        <!-- Button trigger modal -->
-                        <button type="submit" class="btn btn-secondary" style="color: whitesmoke;">Prediksi <i class="fas fa-paper-plane"></i></button>
-                    </form>
-                    <br>
-                    <br>
-                    
-                    <label for="inputAddress " class="form-label ">Hasil Prediksi Harga</label>
-                    {% if pred_res == False %}
-                    <input type="text " class="form-control " id="inputAddress " placeholder="Range Prediksi Harga" />
-                    {% else %}
-                    <div class="container rounded" style="padding: 3%; background-color: #adb5bd; color: black;">{{ pred_res }}</div>
-                    {% endif %}
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="card-text text-center" style="margin-right: 50px;">
+                        <form id="form-prediksi">
+                            <label for=" inputAddress " class="form-label ">Luas Area (m<sup>2</sup>)</label>
+                            <input type="number" class="form-control " id="inputLuasA" placeholder="Luas Area " name="luast" />
+                            <label for="inputAddress " class="form-label ">Luas Bangunan (m<sup>2</sup>)</label>
+                            <input type="number" class="form-control " id="inputLuasB" placeholder="Luas bangunan " name="luas" />
+                            <label for="inputAddress " class="form-label ">Kamar Tidur</label>
+                            <input type="number" class="form-control " id="inputKamarT" placeholder="Jumlah Kamar Tidur " name="kamar" />
+                            <label for="inputAddress " class="form-label ">Kamar Mandi</label>
+                            <input type="number" class="form-control " id="inputKamarM" placeholder="Jumlah Kamar Mandi " name="kamarm" />
+                            <label for="inputAddress " class="form-label ">Garasi</label>
+                            <input type="number" class="form-control " id="inputGarasi" placeholder="Jumlah garasi " name="garasi" />
+                            <label for="inputState " class="form-label ">Lainnya</label>
+                            <input type="number" class="form-control " id="inputLantai" placeholder="Jumlah Lantai" name="lantai" />
+                            <label for="inputState " class="form-label ">Jumlah lantai</label>
+                            <br>
+                            <!-- Button trigger modal -->
+                            <input type="submit" class="btn btn-secondary" style="color: whitesmoke;" value="Prediksi"></input>
+                        </form>
 
-                    <!-- Modal -->
-                    <!-- <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div id="hasil-prediksi">
+                            <label for="inputAddress " class="form-label ">Hasil Prediksi Harga</label>
+                            <div class="container rounded" style="padding: 3%; background-color: #adb5bd; color: black;"></div>
+                        </div>
+                        <div class="divider-custom ">
+                            <div class="divider-custom-line "></div>
+                            <div class="divider-custom-icon "><i class="fas fa-calculator"></i></div>
+                            <div class="divider-custom-line "></div>
+                        </div>
+                        <p>Lanjutkan pada kalkulasi KPR?</p>
+                        <a type="button" class="btn btn-success" href="#Channel">Ya</a>
+
+                        <a type="button" class="btn btn-danger" style="margin-left: 10px;" href="#about">Tidak</a>
+
+                        <!-- Modal -->
+                        <!-- <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -181,119 +197,184 @@
                             </div>
                         </div>
                     </div> -->
+                    </div>
                 </div>
-            </div>
-            <!-- Showcase Rumah -->
-            <div class="col-md-3 mb-3 ">
-                <div class="card-text text-center ">
-                    <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center ">
-                        <div class="col mb-1 " style="width: 300px;">
-                            <div class="card h-50 ">
-                                <!-- Product image-->
-                                <img class="card-img-top img-fluid" src="{{ url_for('static', filename='assets/img/rumah5.png')}}" alt="rumah11 " style="width: max-content; height: 30ex;" />
-                                <!-- Product details-->
-                                <div class="card-body p-4 ">
-                                    <div class="text-center ">
-                                        <!-- Product name-->
-                                        <h7 class="fw-bolder ">Rumah Jl Merdeka Ayu</h7>
-                                        <br>
-                                        <!-- Product price-->
-                                        <br> 2 lantai, 2 kamar mandi, 3 kamar tidur
-                                        <br>
-                                        <button class="btn btn-outline-dark flex-shrink-0 " type="button " style>
-                                        <i class="bi-cart-fill me-1 "></i>
-                                        Rp 3,5 M
-                                    </button>
+                <!-- Showcase Rumah -->
+                <div class="col text-center">
+                    <br>
+                    <div class="card mb-3" style="max-width: 540px;">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="{{ url_for('static', filename='assets/img/rumah11.png')}}" class="img-fluid rounded-start" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title" style="color: black;">Jl Merdeka Ayu, Sukolilo, Surabaya</h5>
+                                    <p style="color: black;">4 Kamar tidur, 2 Kamar mandi, 3 Garasi</p>
+                                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent ">
+                                        <div class="text-center "><a class="btn btn-outline-dark mt-auto " target="_blank " href="https://www.rumah123.com/properti/surabaya/hos9375508/ ">Kunjungi Lebih Lanjut</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mb-3" style="max-width: 540px;">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="{{ url_for('static', filename='assets/img/rumah6.png')}}" class="img-fluid rounded-start" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title" style="color: black;">Jl Garuda no 15, Mulyosari, Surabaya</h5>
+                                    <br>
+                                    <p style="color: black;">3 Kamar tidur, 3 Kamar mandi, 1 Garasi</p>
+                                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent ">
+                                        <div class="text-center " style="margin-top: 20px;"><a class="btn btn-outline-dark mt-auto " target="_blank " href="https://www.rumah123.com/properti/surabaya/hos9375508/ ">Kunjungi Lebih Lanjut</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mb-3" style="max-width: 540px;">
+                        <div class=" row g-0 ">
+                            <div class="col-md-4 ">
+                                <img src="{{ url_for( 'static', filename='assets/img/rumah5.png' )}} " class="img-fluid rounded-start " alt="... ">
+                            </div>
+                            <div class="col-md-8 ">
+                                <div class="card-body ">
+                                    <h5 class="card-title " style="color: black; ">Jl Gadel, Gubeng, Surabaya</h5>
+                                    <br>
+                                    <p style="color: black; ">2 Kamar tidur, 1 Kamar mandi, 1 Garasi</p>
+                                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent ">
+                                        <div class="text-center "><a class="btn btn-outline-dark mt-auto " target="_blank " href="https://www.rumah123.com/properti/surabaya/hos9375508/ ">Kunjungi Lebih Lanjut</a></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-3 mb-3 ">
-                <div class="card-text text-center ">
-                    <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center ">
-                        <div class="col mb-1 " style="width: 300px;">
-                            <div class="card h-50 ">
-                                <!-- Product image-->
-                                <img class="card-img-top img-fluid" src="{{ url_for('static', filename='assets/img/rumah2.jpg')}} " alt="rumah1" style="width: max-content; height: 30ex;" />
-                                <!-- Product details-->
-                                <div class="card-body p-4 ">
-                                    <div class="text-center ">
-                                        <!-- Product name-->
-                                        <h7 class="fw-bolder ">Rumah Jl Gang Anyar</h7>
-                                        <br>
-                                        <!-- Product price-->
-                                        <br> 3 lantai, 2 kamar mandi, kamar pembantu, 3 kamar tidur
-                                        <br>
-                                        <button class="btn btn-outline-dark flex-shrink-0" type="button">
-                                                <i class="bi-cart-fill me-1"></i>
-                                                Rp 5 M
-                                            </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </section>
     <!-- KPR Section-->
-    <section class="page-section text-white mb-0" style="background-color: #1F2125;" id="about">
+    <section class="page-section text-white mb-0 " style="background-color: #1F2125; " id="about">
         <!-- About Section Heading-->
-        <div class="row text-center">
-            <div class="col">
+        <div class="row text-center ">
+            <div class="col ">
                 <h2 class="page-section-heading text-center text-uppercase text-white ">KPR</h2>
                 <!-- Icon Divider-->
                 <div class="divider-custom divider-light ">
                     <div class="divider-custom-line "></div>
-                    <div class="divider-custom-icon "><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-icon "><i class="fas fa-home"></i></div>
                     <div class="divider-custom-line "></div>
                 </div>
-                <p style="text-align:center">KPR cicilan flat merupakan sistem perhitungan suku bunga yang besarannya mengacu pada pokok utang awal. Dalam sistem bunga flat, cicilan bulanan yang diberikan akan tetap sama selama masa pinjaman</p>
+                <div class="dropdown">
+                    <button class="btn btn-outline-light
+                     dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Tipe KPR</button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="#">KPR FLat</a></li>
+                        <li><a class="dropdown-item" href="#">KPR Float Efektif</a></li>
+                        <li><a class="dropdown-item" href="#">KPR Float Anuitas</a></li>
+                    </ul>
+                </div>
                 <div class="container">
-                    <div class="row justify-content-center ">
-                        <div class="col-md-3 mb-3">
-                            <form action="{{ url_for('index') }}" method="POST">
-                                <label for=" inputAddress " class="form-label ">Jumlah Pinjaman</label>
-                                <input type="number" class="form-control " id="inputAddress " placeholder="(e.g: 1000000) " name="pinjam" />
-                                <br>
-                                <label for="inputAddress " class="form-label ">Suku bunga pinjaman/Tahun (dalam persen)</label>
-                                <input type="number" class="form-control " id="inputAddress " placeholder="(e.g: 15) " name="suku" />
-                                <br>
-                                <label for="inputAddress " class="form-label ">Jangka waktu pinjaman (tahun)</label>
-                                <input type="number" class="form-control " id="inputAddress " placeholder="e.g: 5 " name="tahun" />
-                                <br>
-                                <br>
-                                <button type="submit " class="btn btn-secondary " style="color: whitesmoke; ">Calculate <i class="fas fa-paper-plane "></i></button>
-                            </form>
+                    <div class="row">
+                        <div class="col ">
                             <br>
-                            <br>
-                            <!-- Respon box -->
-                            <label for=" inputAddress " class="form-label ">Besarnya cicilan per bulan</label>
-                            {% if kpr_res == False %}
-                            <input type="text " class="form-control " id="inputAddress " />
-                            {% else %}
-                            <div class="container rounded" style="padding: 3%; background-color: #adb5bd; color: black;">{{ kpr_res[0] }}</div>
-                            {% endif %}
-                            <br>
-                            <label for=" inputAddress " class="form-label ">Jumlah Pinjaman</label>
-                            {% if kpr_res == False %}
-                            <input type="text " class="form-control " id="inputAddress " />
-                            {% else %}
-                            <div class="container rounded" style="padding: 3%; background-color: #adb5bd; color: black;">{{ kpr_res[1] }}</div>
-                            {% endif %}
-                            <br>
-                            <!-- About Section Content-->
+                            <div class="card mb-3 " style="max-width: 540px; ">
+                                <div class="row g-0 ">
+                                    <div class="col-md-4 ">
+                                        <img src="{{ url_for( 'static', filename='assets/KPR2.png' )}} " class="img-fluid rounded-start " alt="... ">
+                                    </div>
+                                    <div class="col-md-8 ">
+                                        <div class="card-body ">
+                                            <h5 class="card-title " style="color: black; ">KPR FLAT</h5>
+                                            <p style="color: black; ">KPR cicilan flat atau fixed rate adalah jenis angsuran dengan suku bunga yang tetap setiap bulannya. </p>
+                                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent ">
+                                                <div class="text-center "><a class="btn btn-dark " style="font-size: small; " target="_blank " href="https://www.simulasikredit.com/simulasi_bunga_tetap.php">More</a></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card mb-3 " style="max-width: 540px; ">
+                                <div class="row g-0 ">
+                                    <div class="col-md-4 ">
+                                        <img src="{{ url_for( 'static', filename='assets/KPR3.png' )}} " class="img-fluid rounded-start " alt="... ">
+                                    </div>
+                                    <div class="col-md-8 ">
+                                        <div class="card-body ">
+                                            <h5 class="card-title " style="color: black; ">KPR Float Skema Efektif</h5>
+                                            <p class="card-text " style="color: black; ">Floating rate adalah sebuah metode perhitungan yang dipengaruhi acuan suku bunga Bank Indonesia, suku bunga pasar, dll yang digunakan oleh bank untuk perhitungan pinjaman kredit.</p>
+                                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent ">
+                                                <div class="text-center "><a class="btn btn-dark " style="font-size: small; " target="_blank " href="https://www.simulasikredit.com/simulasi_bunga_efektif.php">More</a></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card mb-3 " style="max-width: 540px; ">
+                                <div class="row g-0 ">
+                                    <div class="col-md-4 ">
+                                        <img src="{{ url_for( 'static', filename='assets/KPR4.png' )}} " class="img-fluid rounded-start " alt="... ">
+                                    </div>
+                                    <div class="col-md-8 ">
+                                        <div class="card-body ">
+                                            <h5 class="card-title " style="color: black; ">KPR Float Skema Anuitas</h5>
+                                            <style>
+                                                #more {
+                                                    display: none;
+                                                }
+                                            </style>
+                                            <p style="color: black; ">Skema anuitas mirip dengan skema efektif. Bedanya, besaran atau total angsuran setiap bulannya dibuat sama. </p>
+                                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent ">
+                                                <div class="text-center "><a class="btn btn-dark " style="font-size: small; " target="_blank " href="https://www.simulasikredit.com/simulasi_bunga_floating.php">More</a></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col ">
+                            <div class="container ">
+                                <div class="row justify-content-center ">
+                                    <div class="col mb-3 ">
+                                        <form id="form-kpr">
+                                            <label for=" inputAddress " class="form-label ">Jumlah Pinjaman</label>
+                                            <input type="number" class="form-control " id="inputPinjaman" placeholder="(e.g: 1000000)" name="pinjam" />
+                                            <br>
+                                            <label for="inputAddress " class="form-label ">Suku bunga pinjaman/Tahun (dalam persen)</label>
+                                            <input type="number" class="form-control " id="inputSuku" placeholder="(e.g: 15)" name="suku" />
+                                            <br>
+                                            <label for="inputAddress " class="form-label ">Jangka waktu pinjaman (tahun)</label>
+                                            <input type="number" class="form-control " id="inputTenor" placeholder="e.g: 5" name="tahun" />
+                                            <br>
+                                            <br>
+                                            <input type="submit" class="btn btn-secondary" value="Calculate">
+                                            <button type="submit " class="btn btn-secondary " style="color: whitesmoke; ">Calculate <i class="fas fa-paper-plane "></i></button>
+                                        </form>
+                                        <br>
+                                        <br>
+                                        <!-- Respon box -->
+                                        <div id="hasil-kpr1">
+                                            <label for=" inputAddress " class="form-label ">Besarnya cicilan per bulan</label>
+                                            <div class="container rounded" style="padding: 3%; background-color: #adb5bd; color: black; "></div>
+                                            
+                                            <br>
+
+                                            <label for=" inputAddress " class="form-label ">Jumlah Pinjaman</label>
+                                            <div class="container rounded" id="hasil-kpr2" style="padding: 3%; background-color: #adb5bd; color: black; "></div>
+                                        
+                                            <br>
+                                        </div>
+                                        
+                                        <!-- <div id="hasil-kpr"></div> -->
+                                        <!-- About Section Content-->
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        </div>
-        </div>
     </section>
 
     <!--Channel Section -->
@@ -305,236 +386,210 @@
             </div>
             <div class="divider-custom ">
                 <div class="divider-custom-line "></div>
-                <div class="divider-custom-icon "><i class="fas fa-star "></i></div>
+                <div class="divider-custom-icon "><i class="fas fa-home"></i></div>
                 <div class="divider-custom-line "></div>
             </div>
         </div>
-        <section class="py-5 ">
-            <div class="container px-4 px-lg-5 mt-5 ">
-                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center ">
+        <section class="py-5">
+            <div class="container">
+                <div class="row gx-4 justify-content-center ">
                     <div class="col mb-5 ">
                         <div class="card h-100 ">
                             <!-- Product image-->
-                            <img class="img-fluid " src="{{ url_for('static', filename='assets/1.jpg') }}" alt="... " style="width:max-content; height: 30ex;" />
+                            <img class="img-fluid " src="{{ url_for( 'static', filename='assets/1.jpg' ) }} " alt="... " style="width:max-content; " />
                             <!-- Product details-->
                             <div class="card-body p-4 ">
                                 <div class="text-center ">
                                     <!-- Product name-->
-                                    <h5 class="fw-bolder "><b>KALA HOUSE-KEPUTIH</b></h5>
-                                    <!-- Product price-->
-                                    Rp 2 M
+                                    <h5 class="fw-bolder "><b>KALA HOUSE-KEPUTIH</b></h7>
+                                        <br>
+                                        <!-- Product price-->
+                                        900jt
                                 </div>
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent ">
-                                <div class="text-center "><a class="btn btn-outline-dark mt-auto " target="_blank" href="https://www.rumah123.com/properti/surabaya/hos9219555/">Kunjungi Lebih Lanjut</a></div>
+                                <div class="text-center "><a class="btn btn-outline-dark mt-auto " target="_blank " href="https://www.rumah123.com/properti/surabaya/hos9219555/ ">Kunjungi Lebih Lanjut</a></div>
                             </div>
                         </div>
                     </div>
                     <div class="col mb-5 ">
                         <div class="card h-100 ">
                             <!-- Product image-->
-                            <img class="img-fluid " src="{{ url_for('static', filename='assets/10.png') }}" alt="... " style="width: max-content;height: 30ex;" />
+                            <img class="img-fluid " src="{{ url_for( 'static', filename='assets/10.png' ) }} " alt="... " style="width: max-content; " />
                             <!-- Product details-->
                             <div class="card-body p-4 ">
                                 <div class="text-center ">
                                     <!-- Product name-->
                                     <h5 class="fw-bolder ">SORE HOUSE-MULYOREJO</h5>
                                     <!-- Product price-->
-                                    Rp 1,5 M
+                                    850jt
                                 </div>
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent ">
-                                <div class="text-center "><a class="btn btn-outline-dark mt-auto " target="_blank" href="https://www.rumah123.com/properti/surabaya/hos9377357/">Kunjungi Lebih Lanjut</a></div>
+                                <div class="text-center "><a class="btn btn-outline-dark mt-auto " target="_blank " href="https://www.rumah123.com/properti/surabaya/hos9377357/ ">Kunjungi Lebih Lanjut</a></div>
                             </div>
                         </div>
                     </div>
                     <div class="col mb-5 ">
                         <div class="card h-100 ">
                             <!-- Product image-->
-                            <img class="img-fluid " src="{{ url_for('static', filename='assets/2.png') }}" alt="... " style="width: max-content;height: 30ex;" " />
-                            <!-- Product details-->
-                            <div class="card-body p-4 ">
-                                <div class="text-center ">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder ">LAWU HOUSE-BARATAJAYA</h5>
-                                    <!-- Product price-->
-                                    Rp 1,8 M
-                                </div>
-                            </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent ">
-                                <div class="text-center "><a class="btn btn-outline-dark mt-auto " target="_blank" href="https://www.rumah123.com/properti/surabaya/hos9375508/">Kunjungi Lebih Lanjut</a></div>
-                            </div>
+                            <img class="img-fluid " src="{{ url_for( 'static', filename='assets/2.png' ) }} " alt="... " style="width: max-content; " " />
+                    <!-- Product details-->
+                    <div class="card-body p-4 ">
+                        <div class="text-center ">
+                            <!-- Product name-->
+                            <h5 class="fw-bolder ">LAWU HOUSE-BARATAJAYA</h5>
+                            <!-- Product price-->
+                            750jt
                         </div>
                     </div>
-                    <div class="col mb-5 ">
-                        <div class="card h-100 ">
-                            <!-- Product image-->
-                            <img class="img-fluid " src="{{ url_for('static', filename='assets/5.jpg') }}" alt="... " style="width: max-content; height: 30ex;" " />
+                    <!-- Product actions-->
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent ">
+                        <div class="text-center "><a class="btn btn-outline-dark mt-auto " target="_blank " href="https://www.rumah123.com/properti/surabaya/hos9375508/ ">Kunjungi Lebih Lanjut</a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col mb-5 ">
+                <div class="card h-100 ">
+                    <!-- Product image-->
+                    <img class="img-fluid " src="{{ url_for( 'static', filename='assets/5.jpg' ) }} " alt="... " style="width: max-content; max-height: max-content; " " />
                             <!-- Product details-->
                             <div class="card-body p-4 ">
                                 <div class="text-center ">
                                     <!-- Product name-->
                                     <h5 class="fw-bolder ">HULI HOUSE - GUNUNG ANYAR</h5>
                                     <!-- Product price-->
-                                    Rp 1,7 M
+                                    790jt
                                 </div>
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent ">
-                                <div class="text-center "><a class="btn btn-outline-dark mt-auto " target="_blank" href="https://www.rumah123.com/properti/surabaya/hos9374482/">Kunjungi Lebih Lanjut</a></div>
+                                <div class="text-center "><a class="btn btn-outline-dark mt-auto " target="_blank " href="https://www.rumah123.com/properti/surabaya/hos9374482/ ">Kunjungi Lebih Lanjut</a></div>
                             </div>
                         </div>
                     </div>
-                    <div class="col mb-5 ">
-                        <div class="card h-100 ">
-                            <!-- Product image-->
-                            <img class="img-fluid " src="{{ url_for('static', filename='assets/6.png') }}" alt="... " style="width: max-content;height: 30ex;" />
-                            <!-- Product details-->
-                            <div class="card-body p-4 ">
-                                <div class="text-center ">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder ">GUBENG HOUSE-GUBENG</h5>
-                                    <!-- Product price-->
-                                    Rp 1,9 M
-                                </div>
-                            </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent ">
-                                <div class="text-center "><a class="btn btn-outline-dark mt-auto " target="_blank" href="https://www.rumah123.com/properti/surabaya/hos9373826/">Kunjungi Lebih Lanjut</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col mb-5 ">
-                        <div class="card h-100 ">
-                            <!-- Product image-->
-                            <img class="img-fluid " src="{{ url_for('static', filename='assets/7.jpg') }}" alt="... " style="width: max-content;height: 30ex;" />
-                            <!-- Product details-->
-                            <div class="card-body p-4 ">
-                                <div class="text-center ">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder ">JUPITER HOUSE - KEPUTIH</h5>
-                                    <!-- Product price-->
-                                    Rp 2,1 M
-                                </div>
-                            </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent ">
-                                <div class="text-center "><a class="btn btn-outline-dark mt-auto " target="_blank" href="https://www.rumah123.com/properti/surabaya/hos9373825/">Kunjungi Lebih Lanjut</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col mb-5 ">
-                        <div class="card h-100 ">
-                            <!-- Product image-->
-                            <img class="img-fluid " src="{{ url_for('static', filename='assets/8.jpg') }}" alt="... " style="width: max-content;height: 30ex;" />
-                            <!-- Product details-->
-                            <div class="card-body p-4 ">
-                                <div class="text-center ">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder ">KLAMPIS HOUSE - SUKOLILO</h5>
-                                    <!-- Product price-->
-                                    Rp 2,2 M
-                                </div>
-                            </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent ">
-                                <div class="text-center "><a class="btn btn-outline-dark mt-auto " target="_blank" href="https://www.rumah123.com/properti/surabaya/hos9373303/">Kunjungi Lebih Lanjut</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col mb-5 ">
-                        <div class="card h-100 ">
-                            <!-- Product image-->
-                            <img class="img-fluid " src="{{ url_for('static', filename='assets/11.jpg') }}" alt="... " style="width: max-content;height: 30ex;" />
-                            <!-- Product details-->
-                            <div class="card-body p-4 ">
-                                <div class="text-center ">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder ">GADING HOUSE - TAMBAKSARI</h5>
-                                    <!-- Product price-->
-                                    Rp 2,5 M
-                                </div>
-                            </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent ">
-                                <div class="text-center "><a class="btn btn-outline-dark mt-auto " target="_blank" href="https://www.rumah123.com/properti/surabaya/hos9373285/">Kunjungi Lebih Lanjut</a></div>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </section>
         </div>
         </div>
         </div>
-    </section>
 
+    </section>
     <!-- Contact Section-->
     <section class="page-section " style="background-color: #1F2125; " id="contact">
+        <!-- Contact Section Heading-->
+        <h2 class="page-section-heading text-center text-uppercase mb-0 " style="color: white; ">Contact Us!</h2>
+        <!-- Icon Divider-->
+        <div class="divider-custom divider-light ">
+            <div class="divider-custom-line "></div>
+            <div class="divider-custom-icon "><i class="fas fa-home"></i></div>
+            <div class="divider-custom-line "></div>
+        </div>
         <div class="container ">
-            <!-- Contact Section Heading-->
-            <h2 class="page-section-heading text-center text-uppercase mb-0 " style="color: white; ">Contact Us!</h2>
-            <!-- Icon Divider-->
-            <div class="divider-custom divider-light ">
-                <div class="divider-custom-line "></div>
-                <div class="divider-custom-icon "><i class="fas fa-star "></i></div>
-                <div class="divider-custom-line "></div>
-            </div>
-            <!-- Contact Section Form-->
-            <div class="row justify-content-center ">
-                <div class="col-lg-8 col-xl-7 ">
-                    <!-- * * * * * * * * * * * * * * *-->
-                    <!-- * * SB Forms Contact Form * *-->
-                    <!-- * * * * * * * * * * * * * * *-->
-                    <!-- This form is pre-integrated with SB Forms.-->
-                    <!-- To make this form functional, sign up at-->
-                    <!-- https://startbootstrap.com/solution/contact-forms-->
-                    <!-- to get an API token!-->
-                    <form id="contactForm " data-sb-form-api-token="API_TOKEN ">
-                        <!-- Name input-->
-                        <div class="form-floating mb-3 ">
-                            <input class="form-control rounded " id="name " type="text " placeholder="Enter your name... " data-sb-validations="required " />
-                            <label for="name ">Nama</label>
-                            <div class="invalid-feedback " data-sb-feedback="name:required ">A name is required.</div>
-                        </div>
-                        <!-- Email address input-->
-                        <div class="form-floating mb-3 ">
-                            <input class="form-control rounded " id="email " type="email " placeholder="name@example.com " data-sb-validations="required,email " />
-                            <label for="email ">Alamat Email</label>
-                            <div class="invalid-feedback " data-sb-feedback="email:required ">An email is required.</div>
-                            <div class="invalid-feedback " data-sb-feedback="email:email ">Email is not valid.</div>
-                        </div>
-                        <!-- Message input-->
-                        <div class="form-floating mb-3 ">
-                            <textarea class="form-control rounded " id="message " type="text " placeholder="Enter your message here... " style="height: 10rem " data-sb-validations="required "></textarea>
-                            <label for="message ">Message</label>
-                            <div class="invalid-feedback " data-sb-feedback="message:required ">A message is required.</div>
-                        </div>
-                        <!-- Submit success message-->
-                        <!---->
-                        <!-- This is what your users will see when the form-->
-                        <!-- has successfully submitted-->
-                        <div class="d-none " id="submitSuccessMessage ">
-                            <div class="text-center mb-3 ">
-                                <div class="fw-bolder ">Form submission successful!</div>
-                                To activate this form, sign up at
-                                <br />
-                                <a href="https://startbootstrap.com/solution/contact-forms ">https://startbootstrap.com/solution/contact-forms</a>
+            <div class="row ">
+                <div class="col ">
+                    <!-- Contact Section Form-->
+                    <div class="col-lg-8 col-xl-7 ">
+                        <!-- * * * * * * * * * * * * * * *-->
+                        <!-- * * SB Forms Contact Form * *-->
+                        <!-- * * * * * * * * * * * * * * *-->
+                        <!-- This form is pre-integrated with SB Forms.-->
+                        <!-- To make this form functional, sign up at-->
+                        <!-- https://startbootstrap.com/solution/contact-forms-->
+                        <!-- to get an API token!-->
+                        <form id="contactForm ">
+
+                            <!-- Name input -->
+                            <div class="mb-3 ">
+                                <label class="form-label " style="color: whitesmoke; " for="name ">Name</label>
+                                <input class="form-control " id="name " type="text " placeholder="Name " data-sb-validations="required " />
+                                <div class="invalid-feedback " data-sb-feedback="name:required ">Name is required.</div>
+                            </div>
+
+                            <!-- Email address input -->
+                            <div class="mb-3 " style="margin-bottom:20px; ">
+                                <label class="form-label " style="color: whitesmoke; " for="emailAddress ">Email Address</label>
+                                <input class="form-control " id="emailAddress " type="email " placeholder="Email Address " data-sb-validations="required, email " />
+                                <div class="invalid-feedback " data-sb-feedback="emailAddress:required ">Email Address is required.</div>
+                                <div class="invalid-feedback " data-sb-feedback="emailAddress:email ">Email Address Email is not valid.</div>
+                            </div>
+
+                            <!-- Message input -->
+                            <div class="mb-3 ">
+                                <label class="form-label " style="color: whitesmoke; " for="message ">Message</label>
+                                <textarea class="form-control " id="message " type="text " placeholder="Message " style="height: 10rem; " data-sb-validations="required "></textarea>
+                                <div class="invalid-feedback " data-sb-feedback="message:required ">Message is required.</div>
+                            </div>
+
+                            <!-- Form submissions success message -->
+                            <div class="d-none " id="submitSuccessMessage ">
+                                <div class="text-center mb-3 ">Form submission successful!</div>
+                            </div>
+
+                            <!-- Form submissions error message -->
+                            <div class="d-none " id="submitErrorMessage ">
+                                <div class="text-center text-danger mb-3 ">Error sending message!</div>
+                            </div>
+
+                            <!-- Form submit button -->
+                            <div class="d-grid ">
+                                <button class="btn btn-outline-light btn-lg " type="submit ">Submit</button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+                <div class="col " style="margin-top: 25px; text-align: center; ">
+                    <div class="row row-cols-1 row-cols-md-2 g-4 ">
+                        <div class="col ">
+                            <div class="card " style="height:355px;width:200px; ">
+                                <img src="{{url_for( 'static', filename='assets/wira1.jpeg' )}} " class="img-fluid rounded " alt="wira ">
+                                <div class=" card-body ">
+                                    <p class="card-name " style="justify-content: center; "><b>Muhammad Farhan Wirakusuma</b></p>
+                                    <p class="card-text "><b>Backend Developer</b></p>
+                                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent ">
+                                        <div class="text-center "><a class="btn btn-dark " style="font-size: small; " target="_blank " href="https://farhanheit13.github.io ">More</a></div>
+
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <!-- Submit error message-->
-                        <!---->
-                        <!-- This is what your users will see when there is-->
-                        <!-- an error submitting the form-->
-                        <div class="d-none " id="submitErrorMessage ">
-                            <div class="text-center text-danger mb-3 ">Error sending message!</div>
+                        <div class="col ">
+                            <div class="card " style="height:355px;width:200px; ">
+                                <img src="{{ url_for( 'static', filename='assets/alya1.jpeg' )}} " class="img-fluid rounded w-100 " alt="alya ">
+                                <div class="card-body ">
+                                    <p class="card-name " style="justify-content: center; "><b>Najma Attaqiya Alya</b></p>
+                                    <br>
+                                    <p class="card-text "><b>Frontend Developer</b></p>
+                                    <div class="text-center "><a class="btn btn-dark " style="font-size: small; " target="_blank " href="https://najma322.github.io/ ">More</a></div>
+                                </div>
+                            </div>
                         </div>
-                        <!-- Submit Button-->
-                        <button class="btn btn-primary " id="submitButton " type="submit ">Kirim</button>
-                    </form>
+                        <div class="col ">
+                            <div class="card " style="height:355px;width:200px; ">
+                                <img src="{{ url_for( 'static', filename='assets/denise.jpg' )}} " class="img-fluid rounded " alt="... ">
+                                <div class="card-body ">
+                                    <p class="card-name " style="justify-content: center; "><b>Denise Arne Ardanty</b></p>
+                                    <p class="card-text "><b>Frontend Developer</b></p>
+                                    <div class="text-center "><a class="btn btn-dark " style="font-size: small; " target="_blank " href="https://dnsearnee.github.io ">More</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col ">
+                            <div class="card " style="height:355px;width:200px; ">
+                                <img src="{{ url_for( 'static', filename='assets/hanif.jpeg' )}} " class="img-fluid rounded " alt="... ">
+                                <div class="card-body ">
+                                    <p class="card-name " style="justify-content: center; "><b>Muhammad Hanif Sudibyo</b></p>
+                                    <p class="card-text "><b>Backend Developer</b></p>
+                                    <div class="text-center "><a class="btn btn-dark " style="font-size: small; " target="_blank " href="https://fluffhound.github.io/ ">More</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -579,15 +634,59 @@
     </div>
     </div>
     </div>
-    <!-- Bootstrap core JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js "></script>
-    <!-- Core theme JS-->
-    <script src="{{ url_for('static',filename='scripts.js ')}}"></script>
-    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-    <!-- * *                               SB Forms JS                               * *-->
-    <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js "></script>
 </body>
+<script>
+    // Form prediksi
+    $("#form-prediksi").submit(function(event){
+        event.preventDefault();
+        var x1 = $('#inputLuasA').val();
+        var x2 = $('#inputLuasB').val();
+        var x3 = $('#inputKamarT').val();
+        var x4 = $('#inputKamarM').val();
+        var x5 = $('#inputGarasi').val();
+        var x6 = $('#inputLantai').val();
+    
+        $.ajax({
+            url: "/predict_calc",
+            type: "get",
+            data: {x1: x1,
+            x2: x2,
+            x3: x3,
+            x4: x4,
+            x5: x5,
+            x6: x6},
+            success: function(response) {
+                $("#hasil-prediksi").html(response);
+            },
+            error: function(xhr) {
+                //Do Something to handle error
+            }
+        });
+    });
 
+    // Form KPR
+    $("#form-kpr").submit(function(event){
+        event.preventDefault();
+        var kpr1 = $('#inputPinjaman').val();
+        var kpr2 = $('#inputSuku').val();
+        var kpr3 = $('#inputTenor').val();
+        console.log('Hey');
+    
+        $.ajax({
+            url: "/kpr_calc",
+            type: "get",
+            data: {kpr1: kpr1,
+            kpr2: kpr2,
+            kpr3: kpr3},
+            success: function(response) {
+                // $("#hasil-kpr").html(response);
+                // $("#hasil-kpr2").html(response[1].val);
+                $("#hasil-kpr1").replaceWith(response);
+            },
+            error: function(xhr) {
+                //Do Something to handle error
+            }
+        });
+    });
+</script>
 </html>
