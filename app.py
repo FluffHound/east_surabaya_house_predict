@@ -19,7 +19,7 @@ def index():
 
 @app.route('/predict_calc')
 def predict():
-    model = joblib.load('/home/zagreus/Documents/Coding/HTML/AlPro/UAS/Model rumah.sav')
+    model = joblib.load('Model rumah.sav')
     luast = int(request.args.get('x1'))
     luas = int(request.args.get('x2'))
     kamar = int(request.args.get('x3'))
