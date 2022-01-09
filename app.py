@@ -217,7 +217,7 @@ def cut_num(angka):
 @app.route('/preview')
 def preview_house():
     daerah = request.args.get('daerah')
-    dataset = pd.read_csv('/home/zagreus/Documents/Coding/HTML/AlPro/UAS/Dataset rumah123 CLEAN.csv')
+    dataset = pd.read_csv('Dataset rumah123 CLEAN.csv')
     dataset = dataset.drop('index', 1)
     frag_data = dataset.loc[dataset['Alamat'].isin([daerah])].reset_index().drop('index', 1)
     feature_preview = []
@@ -260,7 +260,7 @@ def recommendation():
     nye = harga_pred*(down_const/100)
     print(harga_pred)
     print(nye)
-    dataset = pd.read_csv('/home/zagreus/Documents/Coding/HTML/AlPro/UAS/Dataset rumah123 CLEAN.csv')
+    dataset = pd.read_csv('Dataset rumah123 CLEAN.csv')
     dataset = dataset.drop('index', 1)
     frag_data = dataset.loc[dataset['Alamat'].isin([daerah])].reset_index().drop('index', 1)
 
